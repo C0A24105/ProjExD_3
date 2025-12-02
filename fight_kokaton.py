@@ -214,7 +214,7 @@ def main():
         # --- ビーム更新（画面外なら消す） ---
         for i, beam in enumerate(beams):
             beam.update(screen)
-            if not check_bound(beam.rct)[0]:   # 画面横にはみ出たら削除
+            if check_bound(beam.rct) != (True, True):  # ビームが画面外に出たら削除
                 beams[i] = None
         beams = [b for b in beams if b is not None]
         # bombs = [bomb for bomb in bombs if bomb  is not None]
